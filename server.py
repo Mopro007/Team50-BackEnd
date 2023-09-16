@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import sqlite3
 import re
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "https://mopro007.github.io/Team50-FrontEnd/"}})
 
 # Signup API route
 @app.route('/signup', methods=['POST'])

@@ -57,7 +57,7 @@ def signin():
         projects = sqlite3.connect("projects.db")
         cursor = projects.cursor()
         cursor.execute("""CREATE TABLE IF NOT EXISTS projects(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,description TEXT,participants TEXT)""")
-        cursor.execute("SELECT * FROM projects WHERE id=?", (user[5],))
+        cursor.execute("SELECT * FROM projects WHERE id=?", (user[4],))
         project = cursor.fetchone()
         projects.close()
         response = jsonify({'status': 'success', 'user': user, 'project': project})
